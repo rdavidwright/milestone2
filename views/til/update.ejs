@@ -1,0 +1,11 @@
+<% include ../head %>
+<form action="/entries/update/<%= id %>" method='POST'>
+  <label name="slug">Slug</label>
+  <input type="text" name="slug" value="<%= entry.slug %>">
+  <br />
+  <label name="body">Body</label>
+  <input type="text" name="body" value="<%= entry.body %>">
+  <br/>
+  <input type="submit">
+</form>
+<% include ../footer %>
