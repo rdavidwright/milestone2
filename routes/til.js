@@ -17,11 +17,9 @@ router.get('/new', function(req, res, next) {
   res.render('til/new', { title: "Make a new entry"});
 });
 
-/* 3 til/new entry. */
-router.post('/create', function(req, res, next) {
-  console.log(req.body);
+/* 3 til/ entry. */
+router.post('/', function(req, res, next) {
   entries.push(req.body);
-  console.log(entries);
   res.render('til/index', {title: 'Entries', entries: entries});
 });
 
@@ -31,7 +29,7 @@ router.get('/update/:id', function(req, res, next) {
 });
 
 /* 5 post to entries */
-router.post('/update:id', function(req, res, next) {
+router.post('/update/:id', function(req, res, next) {
   entries[req.params.id] = req.body;
   res.render('til/index', {title: 'Update an entry', entries: entries});
 });
