@@ -4,7 +4,7 @@
 
 <ul>
   <% for(var i=0; i<entries.length; i++){ %>
-    <li><a href = '/til/<%= i %>'><%= entries[i].slug %></li>
+    <li><a href = '/til/<%= i %>'><%= entries[i].slug %></a>  <a href = '/til/<%= i %>/update'>Edit</a>  <a href = '/til/<%= i %>/delete'>Delete</a></li>
   <% } %>
 </ul>
 

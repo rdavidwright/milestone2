@@ -1,0 +1,1 @@
+CREATE TABLE events (slug VARCHAR(20), body TEXT, created_at DATE);
