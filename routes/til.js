@@ -9,7 +9,16 @@ var entries = [
 
 /* 1 GET til listing. */
 router.get('/', function(req, res, next) {
-  res.render('til/index', { title: 'Entries', entries: entries});
+  req.db.driver.execQuery(
+    "SELECT * FROM entries;"
+    function(err, data){
+      if(err){
+        consloe.log(err);
+      }
+      res.render('til/index', { title: 'Entries', entries: entries});
+    }
+  );
+  // res.render('til/index', { title: 'Entries', entries: entries});
 });
 
 /* 2 til/new */
@@ -19,8 +28,18 @@ router.get('/new', function(req, res, next) {
 
 /* 3 til/ entry. */
 router.post('/', function(req, res, next) {
-  entries.push(req.body);
-  res.render('til/index', {title: 'Entries', entries: entries});
+  req.db.driver.execQuery(
+    "INSERT INT entries (slug, body) VALUES ('" + req.body.slug + "')" + "','" + req.body.body + "');"
+    function(err, data){
+      if(err)
+      {
+        console.log(err);
+      }
+      res.render('til/index', {title: 'Entries', entries: entries});
+    }
+  );
+  // entries.push(req.body);
+  // res.render('til/index', {title: 'Entries', entries: entries});
 });
 
 /* 4 entries/*update entry. */
