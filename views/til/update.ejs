@@ -1,10 +1,10 @@
 <% include ../head %>
-<form action="/til/<%= til.id %>" method='POST'>
+<form action="/til/<%= entry.id %>" method='POST'>
   <label name="slug">Slug</label>
   <input type="text" name="slug" value="<%= entry.slug %>" autofocus>
   <br/>
   <label name="body">Body</label>
-  <textarea rows="4" cols="30" type="text" name="body"><%= entry.body %></textarea>
+  <textarea rows="5" cols="30" type="text" name="body"><%= entry.body %></textarea>
   <br/>
   <input type="submit">
 </form>

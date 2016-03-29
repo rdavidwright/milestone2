@@ -1,9 +1,10 @@
 <% include ../head %>
-
 <ul>
   <% for(var i=0; i<entries.length; i++){ %>
-    <li><a href = '/til/<%= til[i].id %>'><%= entries[i].slug %></a>  <a href = '/til/<%= til[i] %>/update'>Edit</a>  <a href = '/til/<%= til[i] %>/delete'>Delete</a></li>
+    <li>
+      <a href = '/til/<%= til[i].id %>'><%= entries[i].slug %></a>
+      <a href = '/til/<%= til[i].id %>/update'>Edit</a>
+      <a href = '/til/<%= til[i].id %>/delete'>Delete</a></li>
   <% } %>
 </ul>
-
 <% include ../footer %>

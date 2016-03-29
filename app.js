@@ -4,7 +4,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var orm = require('orm'); // object related mapping
 
 var routes = require('./routes/index');
 var til = require('./routes/til');
@@ -23,6 +22,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var orm = require('orm'); // object related mapping
+
 // var db-connection-string = "";
 // app.use(orm.express(string, {
 //     define: function (db, models, next) {
@@ -30,7 +31,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 //     }
 // }));
 
- var dbstring = "postgress://'username':'password'@localhost/'database'";
+ // var dbstring = "postgress://'username':'password'@localhost/'database'";
+ var dbstring = "postgres://cs2610:asdfasdf@localhost/entries";
  var string = process.env.DATABASE_URL || dbstring;
  app.use(orm.express(string, {
      define: function (db, models, next) {

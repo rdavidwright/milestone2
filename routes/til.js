@@ -35,7 +35,7 @@ router.post('/', function(req, res, next) {
       {
         console.log(err);
       }
-      res.render('til/index', {title: 'Entries', entries: data});
+//      res.render('til/index', {title: 'Entries', entries: data});
     }
   );
   req.db.driver.execQuery(
@@ -94,7 +94,16 @@ router.get('/:id/delete', function(req, res, next){
       if(err){
         console.log(err);
       }
-      res.render('til/index', {title: 'Entries', entries: data});
+//      res.render('til/index', {title: 'Entries', entries: data});
+    }
+  );
+  req.db.driver.execQuery(
+    "SELECT * FROM til;",
+    function(err, data){
+      if(err){
+        console.log(err);
+      }
+      res.render('til/index', {title: 'TIL', entries: data});
     }
   );
 });
@@ -109,7 +118,7 @@ router.get('/:id', function(req, res, next) {
       }
       res.render('til/entry', {title: "An Entry", entry: data[0]});
     }
-  )
+  );
 });
 
 module.exports = router;
