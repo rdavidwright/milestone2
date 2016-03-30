@@ -32,7 +32,7 @@ var orm = require('orm'); // object related mapping
 // }));
 
  // var dbstring = "postgress://'username':'password'@localhost/'database'";
- var dbstring = "postgres://cs2610:asdfasdf@localhost/entries";
+ var dbstring = "postgres://cs2610:asdfasdf@localhost/til";
  var string = process.env.DATABASE_URL || dbstring;
  app.use(orm.express(string, {
      define: function (db, models, next) {
