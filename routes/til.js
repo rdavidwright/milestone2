@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   console.log(req.cookies.username);
   var name = req.cookeis.username || 'anonmous';
   req.db.driver.execQuery(
-    "SELECT * FROM til;"
+    "SELECT * FROM til;",
     function(err, data){
       if(err){
         consloe.log(err);
